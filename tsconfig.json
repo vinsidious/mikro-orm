@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "target": "ES2020",
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "strict": false,
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
+        "declaration": true,
+        "baseUrl": "./",
+        "paths": {
+            "@entities/*": ["src/entities/*"],
+            "@migrations/*": ["src/migrations/*"],
+            "@orm-types/*": ["src/orm-types/*"],
+            "@migrator/*": ["src/migrator/*"],
+            "@openai": ["src/openai"],
+            "@openai/*": ["src/openai/*"],
+            "@/*": ["src/*"]
+        }
+    },
+    "ts-node": {
+        "esm": true
+    }
+}
