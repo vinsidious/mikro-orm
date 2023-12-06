@@ -1,6 +1,14 @@
 import { v4 as uuidv4 } from 'uuid'
 
-import { Entity, ManyToOne, OptionalProps, PrimaryKey, Property } from '@mikro-orm/core'
+import {
+    Collection,
+    Entity,
+    ManyToMany,
+    ManyToOne,
+    OptionalProps,
+    PrimaryKey,
+    Property,
+} from '@mikro-orm/core'
 
 import { CardTypes } from './CardTypes'
 import { Users } from './Users'
@@ -13,13 +21,13 @@ export class Cards {
     id = uuidv4()
 
     @Property()
-    context?: string
+    context?: any
 
     @Property()
     destination?: string
 
     @ManyToOne()
-    friend?: Users
+    subject?: Users
 
     @Property()
     questions?: any
@@ -27,23 +35,8 @@ export class Cards {
     @ManyToOne()
     cardType?: CardTypes
 
-    @Property({ default: false })
-    isPermanent = false
-
-    @Property()
-    cardBody?: string
-
-    @Property()
-    cardTitle?: string
-
-    @Property()
-    color?: string
-
-    @Property()
-    cta?: string
-
-    @Property()
-    icon?: string
+    @ManyToMany(() => Users, 'activeCards')
+    viewers = new Collection<Users>(this)
 
     @Property()
     createdAt = new Date()

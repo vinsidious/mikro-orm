@@ -5,16 +5,19 @@ import { Entity, ManyToOne, OptionalProps, PrimaryKey, Property } from '@mikro-o
 
 @Entity()
 export class Cities {
-    [OptionalProps]?: 'createdAt' | 'updatedAt' | 'id'
+    [OptionalProps]?: 'createdAt' | 'updatedAt' | 'id' | 'isMajorCity'
 
-    @PrimaryKey({ columnType: 'UUID' })
-    id = uuidv4()
+    @PrimaryKey()
+    id: string
 
     @Property()
     countryCode: string
 
     @Property()
     location: Point
+
+    @Property({ default: false })
+    isMajorCity = false
 
     @ManyToOne()
     majorCity?: Cities

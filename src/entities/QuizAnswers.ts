@@ -19,7 +19,10 @@ export class QuizAnswers {
     attribute?: Attributes
 
     @Property()
-    answer?: string
+    cumulativeScore: number
+
+    @Property()
+    lastAnsweredAt?: Date
 
     @Property()
     createdAt = new Date()

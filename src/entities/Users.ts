@@ -1,19 +1,23 @@
+import _ from 'lodash'
 import { v4 as uuidv4 } from 'uuid'
 
+import { Cards } from '@entities/Cards'
+import { UsersCards } from '@entities/UsersCards'
 import {
     Collection,
     DateType,
     Entity,
     ManyToMany,
     ManyToOne,
+    OneToMany,
     OptionalProps,
     PrimaryKey,
     Property,
     Unique,
 } from '@mikro-orm/core'
 
-import { Cards } from './Cards'
 import { Cities } from './Cities'
+import { Friendships } from './Friendships'
 
 @Entity()
 export class Users {
@@ -72,12 +76,19 @@ export class Users {
     @Property()
     username?: string
 
+    @OneToMany(() => UsersCards, (uc) => uc.viewer)
+    userCards = new Collection<UsersCards>(this)
+
     @ManyToMany({
         entity: () => Cards,
-        joinColumn: 'user_id',
-        inverseJoinColumn: 'card_id',
+        owner: true,
+        inversedBy: 'viewers',
+        pivotEntity: () => UsersCards,
     })
     activeCards = new Collection<Cards>(this)
+
+    @OneToMany(() => Friendships, (friendship) => friendship.user)
+    friendships = new Collection<Friendships>(this)
 
     @Property()
     createdAt = new Date()

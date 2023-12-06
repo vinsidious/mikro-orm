@@ -1,16 +1,16 @@
 export type FetchAllItems = <
-    TTableName extends keyof TypeMap,
-    TType = TypeMap[TTableName]
+    TTableName extends keyof DynamoDBTypeMap,
+    TType = DynamoDBTypeMap[TTableName]
 >(
     tableName: TTableName
 ) => Promise<Array<TType>>
 
-export type TypeMap = {
+export type DynamoDBTypeMap = {
     users: User
     cities: City
     attributes: Attribute
     cards: Card
-    cardTypes: CardType
+    cardType: CardType
     invites: Invite
     momentOptions: MomentOption
     pods: Pod
@@ -18,9 +18,33 @@ export type TypeMap = {
     users_moments: UsersMoment
     users_popups: UsersPopup
     users_quizNotes: UsersQuizNote
+    'users.attributes': User
+    'users.pinnedFriends': User
+    'users.friendRequests': User
+    'users.previousCities': User
+    'users.previousMajorCities': User
+    'users.activeCards': User
+    'users.pods': User
+    'users.blockedUsers': User
 }
 
-type Attribute = {
+export type DynamoDBTableNames = keyof DynamoDBTypeMap
+
+export type DynamoDBTypes =
+    | User
+    | City
+    | Attribute
+    | Card
+    | CardType
+    | Invite
+    | MomentOption
+    | Pod
+    | FriendshipMetadata
+    | UsersMoment
+    | UsersPopup
+    | UsersQuizNote
+
+export type Attribute = {
     id: string
     shortName: string
     inputType: string
@@ -31,7 +55,7 @@ type Attribute = {
     type: string
 }
 
-type City = {
+export type City = {
     id: string // The unique identifier composed of cityName and coordinates
     readableName: string // The human-readable name of the city
     majorCity: string // The closest major city and its coordinates
@@ -42,55 +66,7 @@ type City = {
     population: number // The population count of the city
 }
 
-type Question = {
-    options: string[]
-    attribute: string
-    correctAnswer: string
-    questionText: string
-}
-
-type Context = {
-    friendID?: string
-    attributeID?: string
-    city?: string
-    previous_city?: string
-    event?: {
-        date: string
-        name: string
-        moreInformation: Record<string, string>[]
-        momentOptionID: string
-        id: string
-    }
-    eventID?: string
-    correctAttribute?: string
-}
-
-type Card = {
-    id: string
-    friendID?: string
-    destination: string
-    type: string
-    countActive: number
-    context?: Context
-    questions?: Question[]
-    eventID?: string
-}
-
-type CardType = {
-    id: string
-    icon: 'avatar' | 'friends' | 'places' | 'favs' | 'pulse'
-    cardTitle: string
-    cardBody: string
-    cta: string
-    color: 'Green' | 'Purple' | 'Orange' | 'Blue' | 'Yellow' | 'White'
-}
-
-type Invite = {
-    id: string
-    user: string
-}
-
-type MomentOption = {
+export type MomentOption = {
     id: string
     name: string
     moreInformation: Array<{
@@ -99,13 +75,13 @@ type MomentOption = {
     }>
 }
 
-type Pod = {
+export type Pod = {
     id: string
     name: string
     emojiIcon: string
 }
 
-type FriendshipMetadata = {
+export type FriendshipMetadata = {
     id: string
     profileUnlockedOn?: string
     friendsSince?: string
@@ -113,7 +89,7 @@ type FriendshipMetadata = {
     pods?: string[]
 }
 
-type MoreInformationItem = Record<string, string>
+export type MoreInformationItem = Record<string, string>
 
 interface UsersMoment {
     id: string
@@ -123,7 +99,7 @@ interface UsersMoment {
     moreInformation: MoreInformationItem[]
 }
 
-type UsersPopup = {
+export type UsersPopup = {
     id: string
     name: string
     type: string
@@ -132,20 +108,18 @@ type UsersPopup = {
     endedEarlyAt?: string
 }
 
-type UsersQuizNote = {
+export type UsersQuizNote = {
     id: string
     currentQuizCard: string
     lastUserQuizAt?: string
-    [key: string]:
-        | {
-              lastQuizAt: string
-              cumulativeQuizScore: number
-          }
-        | string
-        | undefined
+} & {
+    [key: string]: {
+        lastQuizAt: string
+        cumulativeQuizScore: number
+    }
 }
 
-type User = {
+export type User = {
     id: string
     username: string
     firstName: string
@@ -179,4 +153,62 @@ type User = {
     location?: string | null
     popups?: string[]
     timeCreated: string
+}
+
+export type Invite = {
+    id: string
+    user: string
+}
+
+type Option = string
+
+interface Question {
+    options: Option[]
+    attribute: string
+    correctAnswer: string
+    questionText: string
+}
+
+interface MoreInformation {
+    [key: string]: string
+}
+
+interface EventContext {
+    date: string
+    name: string
+    moreInformation: MoreInformation[]
+    momentOptionID: string
+    id: string
+    friendID: string
+}
+
+interface Context {
+    event: EventContext
+    eventID: string
+}
+
+export type Card = {
+    id: string
+    isPermanent: boolean
+    icon: string
+    cardTitle: string
+    cardBody: string
+    color: string
+    countActive: number
+    cta?: string
+    type: string
+    destination: string
+    questions?: Question[]
+    friendID?: string
+    context?: Context
+    confetti?: string
+}
+
+export type CardType = {
+    id: string
+    icon: string
+    cardTitle: string
+    cardBody: string
+    cta: string
+    color: string
 }

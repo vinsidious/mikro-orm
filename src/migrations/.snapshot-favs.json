@@ -8,7 +8,7 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -68,6 +68,26 @@
           "primary": false,
           "nullable": false,
           "mappedType": "text"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
         }
       },
       "name": "attributes",
@@ -79,18 +99,20 @@
             "id"
           ],
           "composite": false,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
       ],
       "checks": [],
-      "foreignKeys": {}
+      "foreignKeys": {},
+      "nativeEnums": {}
     },
     {
       "columns": {
         "id": {
           "name": "id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -103,7 +125,7 @@
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
-          "nullable": false,
+          "nullable": true,
           "mappedType": "text"
         },
         "card_title": {
@@ -112,7 +134,7 @@
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
-          "nullable": false,
+          "nullable": true,
           "mappedType": "text"
         },
         "color": {
@@ -141,6 +163,36 @@
           "primary": false,
           "nullable": true,
           "mappedType": "text"
+        },
+        "is_permanent": {
+          "name": "is_permanent",
+          "type": "boolean",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "false",
+          "mappedType": "boolean"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
         }
       },
       "name": "card_types",
@@ -152,12 +204,14 @@
             "id"
           ],
           "composite": false,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
       ],
       "checks": [],
-      "foreignKeys": {}
+      "foreignKeys": {},
+      "nativeEnums": {}
     },
     {
       "columns": {
@@ -179,27 +233,24 @@
           "nullable": false,
           "mappedType": "text"
         },
-        "latitude": {
-          "name": "latitude",
-          "type": "numeric(10,0)",
+        "location": {
+          "name": "location",
+          "type": "text",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "precision": 10,
-          "scale": 0,
-          "mappedType": "decimal"
+          "mappedType": "text"
         },
-        "longitude": {
-          "name": "longitude",
-          "type": "numeric(10,0)",
+        "is_major_city": {
+          "name": "is_major_city",
+          "type": "boolean",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "precision": 10,
-          "scale": 0,
-          "mappedType": "decimal"
+          "default": "false",
+          "mappedType": "boolean"
         },
         "major_city_id": {
           "name": "major_city_id",
@@ -212,13 +263,11 @@
         },
         "population": {
           "name": "population",
-          "type": "numeric(10,0)",
+          "type": "numeric",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
-          "nullable": true,
-          "precision": 10,
-          "scale": 0,
+          "nullable": false,
           "mappedType": "decimal"
         },
         "readable_name": {
@@ -238,6 +287,26 @@
           "primary": false,
           "nullable": false,
           "mappedType": "text"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
         }
       },
       "name": "cities",
@@ -249,6 +318,7 @@
             "id"
           ],
           "composite": false,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
@@ -268,13 +338,14 @@
           "deleteRule": "set null",
           "updateRule": "cascade"
         }
-      }
+      },
+      "nativeEnums": {}
     },
     {
       "columns": {
         "id": {
           "name": "id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -298,6 +369,26 @@
           "primary": false,
           "nullable": false,
           "mappedType": "text"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
         }
       },
       "name": "moment_options",
@@ -309,18 +400,20 @@
             "id"
           ],
           "composite": false,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
       ],
       "checks": [],
-      "foreignKeys": {}
+      "foreignKeys": {},
+      "nativeEnums": {}
     },
     {
       "columns": {
         "id": {
           "name": "id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -344,6 +437,26 @@
           "primary": false,
           "nullable": false,
           "mappedType": "text"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
         }
       },
       "name": "pods",
@@ -355,18 +468,20 @@
             "id"
           ],
           "composite": false,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
       ],
       "checks": [],
-      "foreignKeys": {}
+      "foreignKeys": {},
+      "nativeEnums": {}
     },
     {
       "columns": {
         "id": {
           "name": "id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -375,21 +490,23 @@
         },
         "count_attribute": {
           "name": "count_attribute",
-          "type": "double precision",
+          "type": "numeric",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
-          "nullable": true,
-          "mappedType": "double"
+          "nullable": false,
+          "default": "0",
+          "mappedType": "decimal"
         },
         "count_quiz": {
           "name": "count_quiz",
-          "type": "double precision",
+          "type": "numeric",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
-          "nullable": true,
-          "mappedType": "double"
+          "nullable": false,
+          "default": "0",
+          "mappedType": "decimal"
         },
         "country_code": {
           "name": "country_code",
@@ -400,8 +517,8 @@
           "nullable": true,
           "mappedType": "text"
         },
-        "current_city": {
-          "name": "current_city",
+        "current_city_id": {
+          "name": "current_city_id",
           "type": "text",
           "unsigned": false,
           "autoincrement": false,
@@ -409,8 +526,8 @@
           "nullable": true,
           "mappedType": "text"
         },
-        "current_major_city": {
-          "name": "current_major_city",
+        "current_major_city_id": {
+          "name": "current_major_city_id",
           "type": "text",
           "unsigned": false,
           "autoincrement": false,
@@ -420,13 +537,12 @@
         },
         "date_of_birth": {
           "name": "date_of_birth",
-          "type": "timestamptz(6)",
+          "type": "date",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": true,
-          "length": 6,
-          "mappedType": "datetime"
+          "mappedType": "date"
         },
         "expo_push_token": {
           "name": "expo_push_token",
@@ -446,8 +562,8 @@
           "nullable": true,
           "mappedType": "text"
         },
-        "home_base_city": {
-          "name": "home_base_city",
+        "home_base_city_id": {
+          "name": "home_base_city_id",
           "type": "text",
           "unsigned": false,
           "autoincrement": false,
@@ -455,8 +571,8 @@
           "nullable": true,
           "mappedType": "text"
         },
-        "home_base_major_city": {
-          "name": "home_base_major_city",
+        "home_base_major_city_id": {
+          "name": "home_base_major_city_id",
           "type": "text",
           "unsigned": false,
           "autoincrement": false,
@@ -500,23 +616,13 @@
           "nullable": true,
           "mappedType": "json"
         },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamptz(6)",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": true,
-          "length": 6,
-          "mappedType": "datetime"
-        },
         "is_full_user": {
           "name": "is_full_user",
           "type": "boolean",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
-          "nullable": true,
+          "nullable": false,
           "default": "false",
           "mappedType": "boolean"
         },
@@ -528,6 +634,26 @@
           "primary": false,
           "nullable": true,
           "mappedType": "text"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
         }
       },
       "name": "users",
@@ -539,6 +665,7 @@
           ],
           "composite": false,
           "keyName": "users_phone_number_key",
+          "constraint": true,
           "primary": false,
           "unique": true
         },
@@ -548,6 +675,7 @@
           ],
           "composite": false,
           "keyName": "users_username_key",
+          "constraint": true,
           "primary": false,
           "unique": true
         },
@@ -557,16 +685,17 @@
             "id"
           ],
           "composite": false,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
       ],
       "checks": [],
       "foreignKeys": {
-        "users_current_city_foreign": {
-          "constraintName": "users_current_city_foreign",
+        "users_current_city_id_foreign": {
+          "constraintName": "users_current_city_id_foreign",
           "columnNames": [
-            "current_city"
+            "current_city_id"
           ],
           "localTableName": "public.users",
           "referencedColumnNames": [
@@ -576,10 +705,10 @@
           "deleteRule": "set null",
           "updateRule": "cascade"
         },
-        "users_current_major_city_foreign": {
-          "constraintName": "users_current_major_city_foreign",
+        "users_current_major_city_id_foreign": {
+          "constraintName": "users_current_major_city_id_foreign",
           "columnNames": [
-            "current_major_city"
+            "current_major_city_id"
           ],
           "localTableName": "public.users",
           "referencedColumnNames": [
@@ -589,10 +718,10 @@
           "deleteRule": "set null",
           "updateRule": "cascade"
         },
-        "users_home_base_city_foreign": {
-          "constraintName": "users_home_base_city_foreign",
+        "users_home_base_city_id_foreign": {
+          "constraintName": "users_home_base_city_id_foreign",
           "columnNames": [
-            "home_base_city"
+            "home_base_city_id"
           ],
           "localTableName": "public.users",
           "referencedColumnNames": [
@@ -602,10 +731,10 @@
           "deleteRule": "set null",
           "updateRule": "cascade"
         },
-        "users_home_base_major_city_foreign": {
-          "constraintName": "users_home_base_major_city_foreign",
+        "users_home_base_major_city_id_foreign": {
+          "constraintName": "users_home_base_major_city_id_foreign",
           "columnNames": [
-            "home_base_major_city"
+            "home_base_major_city_id"
           ],
           "localTableName": "public.users",
           "referencedColumnNames": [
@@ -615,13 +744,14 @@
           "deleteRule": "set null",
           "updateRule": "cascade"
         }
-      }
+      },
+      "nativeEnums": {}
     },
     {
       "columns": {
         "id": {
           "name": "id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -630,7 +760,7 @@
         },
         "user_id": {
           "name": "user_id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -657,7 +787,7 @@
         },
         "started_at": {
           "name": "started_at",
-          "type": "timestamptz(6)",
+          "type": "timestamptz",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -667,7 +797,7 @@
         },
         "ended_early_at": {
           "name": "ended_early_at",
-          "type": "timestamptz(6)",
+          "type": "timestamptz",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -677,7 +807,27 @@
         },
         "expired_at": {
           "name": "expired_at",
-          "type": "timestamptz(6)",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -695,6 +845,7 @@
             "id"
           ],
           "composite": false,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
@@ -713,7 +864,112 @@
           "referencedTableName": "public.users",
           "updateRule": "cascade"
         }
-      }
+      },
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "UUID",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "uuid"
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "UUID",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "uuid"
+        },
+        "moment_option_id": {
+          "name": "moment_option_id",
+          "type": "UUID",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "uuid"
+        },
+        "more_information": {
+          "name": "more_information",
+          "type": "jsonb",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "json"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        }
+      },
+      "name": "moments",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "moments_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "moments_user_id_foreign": {
+          "constraintName": "moments_user_id_foreign",
+          "columnNames": [
+            "user_id"
+          ],
+          "localTableName": "public.moments",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.users",
+          "deleteRule": "set null",
+          "updateRule": "cascade"
+        },
+        "moments_moment_option_id_foreign": {
+          "constraintName": "moments_moment_option_id_foreign",
+          "columnNames": [
+            "moment_option_id"
+          ],
+          "localTableName": "public.moments",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.moment_options",
+          "deleteRule": "set null",
+          "updateRule": "cascade"
+        }
+      },
+      "nativeEnums": {}
     },
     {
       "columns": {
@@ -728,7 +984,7 @@
         },
         "inviter_id": {
           "name": "inviter_id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -737,12 +993,32 @@
         },
         "consumer_id": {
           "name": "consumer_id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": true,
           "mappedType": "uuid"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
         }
       },
       "name": "invites",
@@ -754,6 +1030,7 @@
             "id"
           ],
           "composite": false,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
@@ -786,22 +1063,23 @@
           "deleteRule": "set null",
           "updateRule": "cascade"
         }
-      }
+      },
+      "nativeEnums": {}
     },
     {
       "columns": {
-        "user_id_a": {
-          "name": "user_id_a",
-          "type": "uuid",
+        "user_id": {
+          "name": "user_id",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
           "mappedType": "uuid"
         },
-        "user_id_b": {
-          "name": "user_id_b",
-          "type": "uuid",
+        "friend_id": {
+          "name": "friend_id",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -810,17 +1088,17 @@
         },
         "friends_since": {
           "name": "friends_since",
-          "type": "timestamptz(6)",
+          "type": "timestamptz",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
-          "nullable": true,
+          "nullable": false,
           "length": 6,
           "mappedType": "datetime"
         },
         "last_caught_up": {
           "name": "last_caught_up",
-          "type": "timestamptz(6)",
+          "type": "timestamptz",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -830,11 +1108,31 @@
         },
         "profile_unlocked_on": {
           "name": "profile_unlocked_on",
-          "type": "timestamptz(6)",
+          "type": "timestamptz",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": true,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
           "length": 6,
           "mappedType": "datetime"
         }
@@ -845,20 +1143,21 @@
         {
           "keyName": "friendships_pkey",
           "columnNames": [
-            "user_id_a",
-            "user_id_b"
+            "user_id",
+            "friend_id"
           ],
           "composite": true,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
       ],
       "checks": [],
       "foreignKeys": {
-        "friendships_user_id_a_foreign": {
-          "constraintName": "friendships_user_id_a_foreign",
+        "friendships_user_id_foreign": {
+          "constraintName": "friendships_user_id_foreign",
           "columnNames": [
-            "user_id_a"
+            "user_id"
           ],
           "localTableName": "public.friendships",
           "referencedColumnNames": [
@@ -867,10 +1166,10 @@
           "referencedTableName": "public.users",
           "updateRule": "cascade"
         },
-        "friendships_user_id_b_foreign": {
-          "constraintName": "friendships_user_id_b_foreign",
+        "friendships_friend_id_foreign": {
+          "constraintName": "friendships_friend_id_foreign",
           "columnNames": [
-            "user_id_b"
+            "friend_id"
           ],
           "localTableName": "public.friendships",
           "referencedColumnNames": [
@@ -879,13 +1178,14 @@
           "referencedTableName": "public.users",
           "updateRule": "cascade"
         }
-      }
+      },
+      "nativeEnums": {}
     },
     {
       "columns": {
         "from_user_id": {
           "name": "from_user_id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -894,12 +1194,42 @@
         },
         "to_user_id": {
           "name": "to_user_id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
           "mappedType": "uuid"
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "'PENDING'",
+          "mappedType": "text"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
         }
       },
       "name": "friend_requests",
@@ -912,6 +1242,7 @@
             "to_user_id"
           ],
           "composite": true,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
@@ -928,7 +1259,6 @@
             "id"
           ],
           "referencedTableName": "public.users",
-          "deleteRule": "cascade",
           "updateRule": "cascade"
         },
         "friend_requests_to_user_id_foreign": {
@@ -941,16 +1271,16 @@
             "id"
           ],
           "referencedTableName": "public.users",
-          "deleteRule": "cascade",
           "updateRule": "cascade"
         }
-      }
+      },
+      "nativeEnums": {}
     },
     {
       "columns": {
         "id": {
           "name": "id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -959,12 +1289,12 @@
         },
         "context": {
           "name": "context",
-          "type": "text",
+          "type": "jsonb",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": true,
-          "mappedType": "text"
+          "mappedType": "json"
         },
         "destination": {
           "name": "destination",
@@ -975,9 +1305,9 @@
           "nullable": true,
           "mappedType": "text"
         },
-        "friend_id": {
-          "name": "friend_id",
-          "type": "uuid",
+        "subject_id": {
+          "name": "subject_id",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -995,67 +1325,32 @@
         },
         "card_type_id": {
           "name": "card_type_id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": true,
           "mappedType": "uuid"
         },
-        "is_permanent": {
-          "name": "is_permanent",
-          "type": "boolean",
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
-          "nullable": true,
-          "default": "false",
-          "mappedType": "boolean"
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
         },
-        "card_body": {
-          "name": "card_body",
-          "type": "text",
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
-          "nullable": true,
-          "mappedType": "text"
-        },
-        "card_title": {
-          "name": "card_title",
-          "type": "text",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": true,
-          "mappedType": "text"
-        },
-        "color": {
-          "name": "color",
-          "type": "text",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": true,
-          "mappedType": "text"
-        },
-        "cta": {
-          "name": "cta",
-          "type": "text",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": true,
-          "mappedType": "text"
-        },
-        "icon": {
-          "name": "icon",
-          "type": "text",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": true,
-          "mappedType": "text"
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
         }
       },
       "name": "cards",
@@ -1067,16 +1362,17 @@
             "id"
           ],
           "composite": false,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
       ],
       "checks": [],
       "foreignKeys": {
-        "cards_friend_id_foreign": {
-          "constraintName": "cards_friend_id_foreign",
+        "cards_subject_id_foreign": {
+          "constraintName": "cards_subject_id_foreign",
           "columnNames": [
-            "friend_id"
+            "subject_id"
           ],
           "localTableName": "public.cards",
           "referencedColumnNames": [
@@ -1099,273 +1395,255 @@
           "deleteRule": "set null",
           "updateRule": "cascade"
         }
-      }
+      },
+      "nativeEnums": {}
     },
     {
       "columns": {
-        "user_id": {
-          "name": "user_id",
-          "type": "uuid",
+        "id": {
+          "name": "id",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
           "mappedType": "uuid"
         },
-        "card_id": {
-          "name": "card_id",
-          "type": "uuid",
+        "actor_id": {
+          "name": "actor_id",
+          "type": "UUID",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "uuid"
+        },
+        "subject_id": {
+          "name": "subject_id",
+          "type": "UUID",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "uuid"
+        },
+        "current_quiz_card_id": {
+          "name": "current_quiz_card_id",
+          "type": "UUID",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "uuid"
+        },
+        "last_actor_quiz_at": {
+          "name": "last_actor_quiz_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "mappedType": "uuid"
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
         }
       },
-      "name": "users_active_cards",
+      "name": "quizzes",
       "schema": "public",
       "indexes": [
         {
-          "keyName": "users_active_cards_pkey",
+          "keyName": "quizzes_pkey",
           "columnNames": [
-            "user_id",
-            "card_id"
+            "id"
           ],
-          "composite": true,
+          "composite": false,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
       ],
       "checks": [],
       "foreignKeys": {
-        "users_active_cards_user_id_foreign": {
-          "constraintName": "users_active_cards_user_id_foreign",
+        "quizzes_actor_id_foreign": {
+          "constraintName": "quizzes_actor_id_foreign",
           "columnNames": [
-            "user_id"
+            "actor_id"
           ],
-          "localTableName": "public.users_active_cards",
+          "localTableName": "public.quizzes",
           "referencedColumnNames": [
             "id"
           ],
           "referencedTableName": "public.users",
-          "deleteRule": "cascade",
+          "deleteRule": "set null",
           "updateRule": "cascade"
         },
-        "users_active_cards_card_id_foreign": {
-          "constraintName": "users_active_cards_card_id_foreign",
+        "quizzes_subject_id_foreign": {
+          "constraintName": "quizzes_subject_id_foreign",
           "columnNames": [
-            "card_id"
+            "subject_id"
           ],
-          "localTableName": "public.users_active_cards",
+          "localTableName": "public.quizzes",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.users",
+          "deleteRule": "set null",
+          "updateRule": "cascade"
+        },
+        "quizzes_current_quiz_card_id_foreign": {
+          "constraintName": "quizzes_current_quiz_card_id_foreign",
+          "columnNames": [
+            "current_quiz_card_id"
+          ],
+          "localTableName": "public.quizzes",
           "referencedColumnNames": [
             "id"
           ],
           "referencedTableName": "public.cards",
-          "deleteRule": "cascade",
+          "deleteRule": "set null",
           "updateRule": "cascade"
         }
-      }
+      },
+      "nativeEnums": {}
     },
     {
       "columns": {
-        "blocker_id": {
-          "name": "blocker_id",
-          "type": "uuid",
+        "id": {
+          "name": "id",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
           "mappedType": "uuid"
         },
-        "blocked_id": {
-          "name": "blocked_id",
-          "type": "uuid",
+        "quiz_id": {
+          "name": "quiz_id",
+          "type": "UUID",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "uuid"
+        },
+        "attribute_id": {
+          "name": "attribute_id",
+          "type": "UUID",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "uuid"
+        },
+        "cumulative_score": {
+          "name": "cumulative_score",
+          "type": "numeric",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "mappedType": "uuid"
+          "mappedType": "decimal"
+        },
+        "last_answered_at": {
+          "name": "last_answered_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
         }
       },
-      "name": "users_blocked_users",
+      "name": "quiz_answers",
       "schema": "public",
       "indexes": [
         {
-          "keyName": "users_blocked_users_pkey",
+          "keyName": "quiz_answers_pkey",
           "columnNames": [
-            "blocker_id",
-            "blocked_id"
+            "id"
           ],
-          "composite": true,
+          "composite": false,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
       ],
       "checks": [],
       "foreignKeys": {
-        "users_blocked_users_blocker_id_foreign": {
-          "constraintName": "users_blocked_users_blocker_id_foreign",
+        "quiz_answers_quiz_id_foreign": {
+          "constraintName": "quiz_answers_quiz_id_foreign",
           "columnNames": [
-            "blocker_id"
+            "quiz_id"
           ],
-          "localTableName": "public.users_blocked_users",
+          "localTableName": "public.quiz_answers",
           "referencedColumnNames": [
             "id"
           ],
-          "referencedTableName": "public.users",
-          "deleteRule": "cascade",
+          "referencedTableName": "public.quizzes",
+          "deleteRule": "set null",
           "updateRule": "cascade"
         },
-        "users_blocked_users_blocked_id_foreign": {
-          "constraintName": "users_blocked_users_blocked_id_foreign",
+        "quiz_answers_attribute_id_foreign": {
+          "constraintName": "quiz_answers_attribute_id_foreign",
           "columnNames": [
-            "blocked_id"
+            "attribute_id"
           ],
-          "localTableName": "public.users_blocked_users",
+          "localTableName": "public.quiz_answers",
           "referencedColumnNames": [
             "id"
           ],
-          "referencedTableName": "public.users",
-          "deleteRule": "cascade",
+          "referencedTableName": "public.attributes",
+          "deleteRule": "set null",
           "updateRule": "cascade"
-        }
-      }
-    },
-    {
-      "columns": {
-        "user_id": {
-          "name": "user_id",
-          "type": "uuid",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": false,
-          "mappedType": "uuid"
-        },
-        "moment_option_id": {
-          "name": "moment_option_id",
-          "type": "uuid",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": false,
-          "mappedType": "uuid"
         }
       },
-      "name": "users_moments_options",
-      "schema": "public",
-      "indexes": [
-        {
-          "keyName": "users_moments_options_pkey",
-          "columnNames": [
-            "user_id",
-            "moment_option_id"
-          ],
-          "composite": true,
-          "primary": true,
-          "unique": true
-        }
-      ],
-      "checks": [],
-      "foreignKeys": {
-        "users_moments_options_user_id_foreign": {
-          "constraintName": "users_moments_options_user_id_foreign",
-          "columnNames": [
-            "user_id"
-          ],
-          "localTableName": "public.users_moments_options",
-          "referencedColumnNames": [
-            "id"
-          ],
-          "referencedTableName": "public.users",
-          "deleteRule": "cascade",
-          "updateRule": "cascade"
-        },
-        "users_moments_options_moment_option_id_foreign": {
-          "constraintName": "users_moments_options_moment_option_id_foreign",
-          "columnNames": [
-            "moment_option_id"
-          ],
-          "localTableName": "public.users_moments_options",
-          "referencedColumnNames": [
-            "id"
-          ],
-          "referencedTableName": "public.moment_options",
-          "deleteRule": "cascade",
-          "updateRule": "cascade"
-        }
-      }
+      "nativeEnums": {}
     },
     {
       "columns": {
         "user_id": {
           "name": "user_id",
-          "type": "uuid",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": false,
-          "mappedType": "uuid"
-        },
-        "pinned_friend_id": {
-          "name": "pinned_friend_id",
-          "type": "uuid",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": false,
-          "mappedType": "uuid"
-        }
-      },
-      "name": "users_pinned_friends",
-      "schema": "public",
-      "indexes": [
-        {
-          "keyName": "users_pinned_friends_pkey",
-          "columnNames": [
-            "user_id",
-            "pinned_friend_id"
-          ],
-          "composite": true,
-          "primary": true,
-          "unique": true
-        }
-      ],
-      "checks": [],
-      "foreignKeys": {
-        "users_pinned_friends_user_id_foreign": {
-          "constraintName": "users_pinned_friends_user_id_foreign",
-          "columnNames": [
-            "user_id"
-          ],
-          "localTableName": "public.users_pinned_friends",
-          "referencedColumnNames": [
-            "id"
-          ],
-          "referencedTableName": "public.users",
-          "deleteRule": "cascade",
-          "updateRule": "cascade"
-        },
-        "users_pinned_friends_pinned_friend_id_foreign": {
-          "constraintName": "users_pinned_friends_pinned_friend_id_foreign",
-          "columnNames": [
-            "pinned_friend_id"
-          ],
-          "localTableName": "public.users_pinned_friends",
-          "referencedColumnNames": [
-            "id"
-          ],
-          "referencedTableName": "public.users",
-          "deleteRule": "cascade",
-          "updateRule": "cascade"
-        }
-      }
-    },
-    {
-      "columns": {
-        "user_id": {
-          "name": "user_id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -1374,7 +1652,7 @@
         },
         "attribute_id": {
           "name": "attribute_id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -1389,6 +1667,26 @@
           "primary": false,
           "nullable": true,
           "mappedType": "text"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
         }
       },
       "name": "users_attributes",
@@ -1401,6 +1699,7 @@
             "attribute_id"
           ],
           "composite": true,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
@@ -1431,22 +1730,23 @@
           "referencedTableName": "public.attributes",
           "updateRule": "cascade"
         }
-      }
+      },
+      "nativeEnums": {}
     },
     {
       "columns": {
-        "user_id": {
-          "name": "user_id",
-          "type": "uuid",
+        "blocker_id": {
+          "name": "blocker_id",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
           "mappedType": "uuid"
         },
-        "moment_id": {
-          "name": "moment_id",
-          "type": "uuid",
+        "blocked_id": {
+          "name": "blocked_id",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -1455,81 +1755,243 @@
         },
         "created_at": {
           "name": "created_at",
-          "type": "timestamptz(6)",
+          "type": "timestamptz",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
-          "nullable": true,
+          "nullable": false,
           "length": 6,
-          "default": "CURRENT_TIMESTAMP",
           "mappedType": "datetime"
-        },
-        "more_information": {
-          "name": "more_information",
-          "type": "jsonb",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": true,
-          "mappedType": "json"
         }
       },
-      "name": "users_moments",
+      "name": "users_blocked_users",
       "schema": "public",
       "indexes": [
         {
-          "keyName": "users_moments_pkey",
+          "keyName": "users_blocked_users_pkey",
           "columnNames": [
-            "user_id",
-            "moment_id"
+            "blocker_id",
+            "blocked_id"
           ],
           "composite": true,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
       ],
       "checks": [],
       "foreignKeys": {
-        "users_moments_user_id_foreign": {
-          "constraintName": "users_moments_user_id_foreign",
+        "users_blocked_users_blocker_id_foreign": {
+          "constraintName": "users_blocked_users_blocker_id_foreign",
           "columnNames": [
-            "user_id"
+            "blocker_id"
           ],
-          "localTableName": "public.users_moments",
+          "localTableName": "public.users_blocked_users",
           "referencedColumnNames": [
             "id"
           ],
           "referencedTableName": "public.users",
           "updateRule": "cascade"
         },
-        "users_moments_moment_id_foreign": {
-          "constraintName": "users_moments_moment_id_foreign",
+        "users_blocked_users_blocked_id_foreign": {
+          "constraintName": "users_blocked_users_blocked_id_foreign",
           "columnNames": [
-            "moment_id"
+            "blocked_id"
           ],
-          "localTableName": "public.users_moments",
+          "localTableName": "public.users_blocked_users",
           "referencedColumnNames": [
             "id"
           ],
-          "referencedTableName": "public.moment_options",
+          "referencedTableName": "public.users",
           "updateRule": "cascade"
         }
-      }
+      },
+      "nativeEnums": {}
     },
     {
       "columns": {
-        "user_id_a": {
-          "name": "user_id_a",
-          "type": "uuid",
+        "user_id": {
+          "name": "user_id",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
           "mappedType": "uuid"
         },
-        "user_id_b": {
-          "name": "user_id_b",
-          "type": "uuid",
+        "card_id": {
+          "name": "card_id",
+          "type": "UUID",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "uuid"
+        },
+        "is_dismissed": {
+          "name": "is_dismissed",
+          "type": "boolean",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "false",
+          "mappedType": "boolean"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        }
+      },
+      "name": "users_cards",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "users_cards_pkey",
+          "columnNames": [
+            "user_id",
+            "card_id"
+          ],
+          "composite": true,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "users_cards_user_id_foreign": {
+          "constraintName": "users_cards_user_id_foreign",
+          "columnNames": [
+            "user_id"
+          ],
+          "localTableName": "public.users_cards",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.users",
+          "updateRule": "cascade"
+        },
+        "users_cards_card_id_foreign": {
+          "constraintName": "users_cards_card_id_foreign",
+          "columnNames": [
+            "card_id"
+          ],
+          "localTableName": "public.users_cards",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.cards",
+          "updateRule": "cascade"
+        }
+      },
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "user_id": {
+          "name": "user_id",
+          "type": "UUID",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "uuid"
+        },
+        "pinned_friend_id": {
+          "name": "pinned_friend_id",
+          "type": "UUID",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "uuid"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        }
+      },
+      "name": "users_pinned_friends",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "users_pinned_friends_pkey",
+          "columnNames": [
+            "user_id",
+            "pinned_friend_id"
+          ],
+          "composite": true,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "users_pinned_friends_user_id_foreign": {
+          "constraintName": "users_pinned_friends_user_id_foreign",
+          "columnNames": [
+            "user_id"
+          ],
+          "localTableName": "public.users_pinned_friends",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.users",
+          "updateRule": "cascade"
+        },
+        "users_pinned_friends_pinned_friend_id_foreign": {
+          "constraintName": "users_pinned_friends_pinned_friend_id_foreign",
+          "columnNames": [
+            "pinned_friend_id"
+          ],
+          "localTableName": "public.users_pinned_friends",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.users",
+          "updateRule": "cascade"
+        }
+      },
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "user_id": {
+          "name": "user_id",
+          "type": "UUID",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "uuid"
+        },
+        "friend_id": {
+          "name": "friend_id",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -1538,12 +2000,22 @@
         },
         "pod_id": {
           "name": "pod_id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
           "mappedType": "uuid"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
         }
       },
       "name": "users_pods",
@@ -1552,21 +2024,22 @@
         {
           "keyName": "users_pods_pkey",
           "columnNames": [
-            "user_id_a",
-            "user_id_b",
+            "user_id",
+            "friend_id",
             "pod_id"
           ],
           "composite": true,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
       ],
       "checks": [],
       "foreignKeys": {
-        "users_pods_user_id_a_foreign": {
-          "constraintName": "users_pods_user_id_a_foreign",
+        "users_pods_user_id_foreign": {
+          "constraintName": "users_pods_user_id_foreign",
           "columnNames": [
-            "user_id_a"
+            "user_id"
           ],
           "localTableName": "public.users_pods",
           "referencedColumnNames": [
@@ -1575,10 +2048,10 @@
           "referencedTableName": "public.users",
           "updateRule": "cascade"
         },
-        "users_pods_user_id_b_foreign": {
-          "constraintName": "users_pods_user_id_b_foreign",
+        "users_pods_friend_id_foreign": {
+          "constraintName": "users_pods_friend_id_foreign",
           "columnNames": [
-            "user_id_b"
+            "friend_id"
           ],
           "localTableName": "public.users_pods",
           "referencedColumnNames": [
@@ -1599,13 +2072,14 @@
           "referencedTableName": "public.pods",
           "updateRule": "cascade"
         }
-      }
+      },
+      "nativeEnums": {}
     },
     {
       "columns": {
         "user_id": {
           "name": "user_id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -1621,9 +2095,9 @@
           "nullable": false,
           "mappedType": "text"
         },
-        "time_left": {
-          "name": "time_left",
-          "type": "timestamptz(6)",
+        "left_at": {
+          "name": "left_at",
+          "type": "timestamptz",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -1642,6 +2116,7 @@
             "city_id"
           ],
           "composite": true,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
@@ -1672,13 +2147,14 @@
           "referencedTableName": "public.cities",
           "updateRule": "cascade"
         }
-      }
+      },
+      "nativeEnums": {}
     },
     {
       "columns": {
         "user_id": {
           "name": "user_id",
-          "type": "uuid",
+          "type": "UUID",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -1694,9 +2170,9 @@
           "nullable": false,
           "mappedType": "text"
         },
-        "time_left": {
-          "name": "time_left",
-          "type": "timestamptz(6)",
+        "left_at": {
+          "name": "left_at",
+          "type": "timestamptz",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
@@ -1715,6 +2191,7 @@
             "major_city_id"
           ],
           "composite": true,
+          "constraint": true,
           "primary": true,
           "unique": true
         }
@@ -1745,90 +2222,9 @@
           "referencedTableName": "public.cities",
           "updateRule": "cascade"
         }
-      }
-    },
-    {
-      "columns": {
-        "user_id": {
-          "name": "user_id",
-          "type": "uuid",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": false,
-          "mappedType": "uuid"
-        },
-        "current_quiz_card": {
-          "name": "current_quiz_card",
-          "type": "uuid",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": true,
-          "mappedType": "uuid"
-        },
-        "last_user_quiz_at": {
-          "name": "last_user_quiz_at",
-          "type": "timestamptz(6)",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": true,
-          "length": 6,
-          "mappedType": "datetime"
-        },
-        "quiz_note_attributes": {
-          "name": "quiz_note_attributes",
-          "type": "jsonb",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": true,
-          "mappedType": "json"
-        }
       },
-      "name": "users_quiz_notes",
-      "schema": "public",
-      "indexes": [
-        {
-          "keyName": "users_quiz_notes_pkey",
-          "columnNames": [
-            "user_id"
-          ],
-          "composite": false,
-          "primary": true,
-          "unique": true
-        }
-      ],
-      "checks": [],
-      "foreignKeys": {
-        "users_quiz_notes_user_id_foreign": {
-          "constraintName": "users_quiz_notes_user_id_foreign",
-          "columnNames": [
-            "user_id"
-          ],
-          "localTableName": "public.users_quiz_notes",
-          "referencedColumnNames": [
-            "id"
-          ],
-          "referencedTableName": "public.users",
-          "deleteRule": "cascade",
-          "updateRule": "cascade"
-        },
-        "users_quiz_notes_current_quiz_card_foreign": {
-          "constraintName": "users_quiz_notes_current_quiz_card_foreign",
-          "columnNames": [
-            "current_quiz_card"
-          ],
-          "localTableName": "public.users_quiz_notes",
-          "referencedColumnNames": [
-            "id"
-          ],
-          "referencedTableName": "public.cards",
-          "deleteRule": "set null",
-          "updateRule": "cascade"
-        }
-      }
+      "nativeEnums": {}
     }
-  ]
+  ],
+  "nativeEnums": {}
 }

@@ -1,5 +1,6 @@
 import { JsonType, Platform, TextType, Type } from '@mikro-orm/core'
 import { EntityGenerator } from '@mikro-orm/entity-generator'
+import { Migrator } from '@mikro-orm/migrations'
 import { defineConfig } from '@mikro-orm/postgresql'
 import { TsMorphMetadataProvider } from '@mikro-orm/reflection'
 
@@ -20,7 +21,9 @@ export default defineConfig({
     entities: ['dist/entities/*.js'],
     entitiesTs: ['src/entities/*.ts'],
     metadataProvider: TsMorphMetadataProvider,
-    extensions: [EntityGenerator],
+    allowGlobalContext: true,
+    extensions: [EntityGenerator, Migrator],
+    dataloader: true,
     discovery: {
         getMappedType(type: string, platform: Platform) {
             if (type === 'string') {

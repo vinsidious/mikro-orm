@@ -12,13 +12,13 @@ import { Users } from './Users'
 @Entity()
 export class UsersPods {
     [OptionalProps]?: 'createdAt';
-    [PrimaryKeyProp]?: ['userA', 'userB', 'pod']
+    [PrimaryKeyProp]?: ['user', 'friend', 'pod']
 
     @ManyToOne({ primary: true })
-    userA!: Users
+    user!: Users
 
     @ManyToOne({ primary: true })
-    userB!: Users
+    friend!: Users
 
     @ManyToOne({ primary: true })
     pod!: Pods

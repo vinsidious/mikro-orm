@@ -10,10 +10,10 @@ export class CardTypes {
     id = uuidv4()
 
     @Property()
-    cardBody: string
+    cardBody?: string
 
     @Property()
-    cardTitle: string
+    cardTitle?: string
 
     @Property()
     color?: string

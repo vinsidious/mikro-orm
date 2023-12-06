@@ -11,6 +11,8 @@
         "declaration": true,
         "baseUrl": "./",
         "paths": {
+            "@entities": ["src/entities/index"],
+            "@db": ["src/db"],
             "@entities/*": ["src/entities/*"],
             "@migrations/*": ["src/migrations/*"],
             "@orm-types/*": ["src/orm-types/*"],

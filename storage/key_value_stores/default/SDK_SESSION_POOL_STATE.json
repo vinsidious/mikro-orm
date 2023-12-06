@@ -1,0 +1,104 @@
+{
+  "usableSessionsCount": 2,
+  "retiredSessionsCount": 0,
+  "sessions": [
+    {
+      "id": "session_tpBGPcPrLM",
+      "cookieJar": {
+        "version": "tough-cookie@4.1.3",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": []
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2023-12-06T05:50:24.833Z",
+      "createdAt": "2023-12-06T05:00:24.833Z",
+      "usageCount": 0,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_BYUKUCRSEs",
+      "cookieJar": {
+        "version": "tough-cookie@4.1.3",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "_gh_sess",
+            "value": "n2flEZeaOBuSY%2B20gC6HAcgft9QGtNA%2F2G3thgbf9Chq6tzJgJqRI0NyFyLoCg5UFQfkruN2JDsE4mmpD08iAfxh0KkGQnRUcmg0f6WqM7o%2BZPYrCngy5NMqRXP0p%2BP7%2FRhzwXkxFB%2BjY5%2B%2FM25teTRLYKTo9zhBPTKnpe%2Fuou6dsw8NggXTisUyPHI2r%2BY8yv5ZGXb12WOHQ8gowI8ANHEiWVHiWPqcSjQBHWA%2F8p6%2FCq8TnoX2ECmyYVqZzkoPipKnu%2BmpQLuT7LuxAw8Zcg%3D%3D--wPHMrPRY0KgDwPfo--XXYW5i43CcihyP%2FmaHFngQ%3D%3D",
+            "expires": "2023-12-06T05:50:26.453Z",
+            "domain": "github.com",
+            "path": "/",
+            "secure": true,
+            "httpOnly": true,
+            "hostOnly": false,
+            "creation": "2023-12-06T05:00:26.455Z",
+            "lastAccessed": "2023-12-06T05:00:26.455Z"
+          },
+          {
+            "key": "_octo",
+            "value": "GH1.1.258653069.1701838825",
+            "expires": "2024-12-06T05:00:26.002Z",
+            "domain": "github.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": false,
+            "creation": "2023-12-06T05:00:26.456Z",
+            "lastAccessed": "2023-12-06T05:00:26.456Z"
+          },
+          {
+            "key": "logged_in",
+            "value": "no",
+            "expires": "2024-12-06T05:00:26.002Z",
+            "domain": "github.com",
+            "path": "/",
+            "secure": true,
+            "httpOnly": true,
+            "hostOnly": false,
+            "creation": "2023-12-06T05:00:26.457Z",
+            "lastAccessed": "2023-12-06T05:00:26.457Z"
+          },
+          {
+            "key": "preferred_color_mode",
+            "value": "light",
+            "expires": "2023-12-06T05:50:26.453Z",
+            "domain": "github.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": false,
+            "creation": "2023-12-06T05:00:26.457Z",
+            "lastAccessed": "2023-12-06T05:00:26.457Z"
+          },
+          {
+            "key": "tz",
+            "value": "America%2FLos_Angeles",
+            "expires": "2023-12-06T05:50:26.453Z",
+            "domain": "github.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": false,
+            "creation": "2023-12-06T05:00:26.458Z",
+            "lastAccessed": "2023-12-06T05:00:26.458Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2023-12-06T05:50:24.835Z",
+      "createdAt": "2023-12-06T05:00:24.835Z",
+      "usageCount": 2,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    }
+  ]
+}

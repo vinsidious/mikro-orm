@@ -10,17 +10,17 @@ import { Users } from './Users'
 
 @Entity()
 export class Friendships {
-    [PrimaryKeyProp]?: ['userA', 'userB'];
+    [PrimaryKeyProp]?: ['user', 'friend'];
     [OptionalProps]?: 'createdAt' | 'updatedAt'
 
     @ManyToOne({ primary: true })
-    userA!: Users
+    user!: Users
 
-    @ManyToOne({ primary: true })
-    userB!: Users
+    @ManyToOne({ primary: true, eager: true })
+    friend!: Users
 
     @Property()
-    friendsSince?: Date
+    friendsSince: Date
 
     @Property()
     lastCaughtUp?: Date

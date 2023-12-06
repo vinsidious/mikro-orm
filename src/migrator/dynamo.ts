@@ -2,7 +2,7 @@ import { DynamoDBClient, ScanCommand, ScanCommandInput } from '@aws-sdk/client-d
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb'
 import { unmarshall } from '@aws-sdk/util-dynamodb'
 
-import { TypeMap } from './types'
+import { DynamoDBTypeMap } from './types'
 
 // Initialize the DynamoDB client (v3).
 const client = new DynamoDBClient({})
@@ -55,6 +55,9 @@ async function paginatedScan(
     }
 }
 
+// In-memory cache for storing fetched items
+const cache: Record<string, any> = {}
+
 /**
  * Fetch all items from a DynamoDB table.
  *
@@ -62,8 +65,17 @@ async function paginatedScan(
  * @returns {Promise<object[]>} - A promise that resolves to an array of unmarshalled items.
  */
 export async function fetchAllItems<
-    TTableName extends keyof TypeMap,
-    TType = TypeMap[TTableName]
+    TTableName extends keyof DynamoDBTypeMap,
+    TType = DynamoDBTypeMap[TTableName]
 >(tableName: TTableName): Promise<Array<TType>> {
-    return paginatedScan(tableName, undefined, []) as Promise<Array<TType>>
+    // If items for the table are already in cache, return them
+    if (cache[tableName]) {
+        return cache[tableName]
+    }
+
+    // Otherwise, fetch items from the table and store them in cache
+    const items = (await paginatedScan(tableName, undefined, [])) as Array<TType>
+    cache[tableName] = items
+
+    return items
 }
